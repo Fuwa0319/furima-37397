@@ -16,6 +16,7 @@
 
 ### Association
 - has_many :items
+- has_many :orders
 
 
 ## items テーブル
@@ -34,17 +35,23 @@
 
 ### Association
 - belongs_to :user
+- belongs_to :category_id
+- belongs_to :status_id
+- belongs_to :ship_charge_id
+- belongs_to :prefecture_id
+- belongs_to :days_to_ship_id
 - has_one    :order
 
 ## orders テーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
-| cell_hone_number | string     | null: false                    |
 | item             | references | null: false, foreign_key: true |
+| user             | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :item
+- belongs_to :user
 - has_one    :address
 
 ## addresses テーブル
@@ -56,6 +63,9 @@
 | building_name    | string     |                                |
 | postal_code      | string     | null: false                    |
 | prefecture_id    | integer    | null: false                    |
+| cell_hone_number | string     | null: false                    |
+| order            | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :item
+- belongs_to :order
+- belongs_to :prefecture_id

@@ -35,11 +35,11 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :category_id
-- belongs_to :status_id
-- belongs_to :ship_charge_id
-- belongs_to :prefecture_id
-- belongs_to :days_to_ship_id
+- belongs_to :category
+- belongs_to :status
+- belongs_to :ship_charge
+- belongs_to :prefecture
+- belongs_to :days_to_ship
 - has_one    :order
 
 ## orders テーブル
@@ -68,4 +68,4 @@
 
 ### Association
 - belongs_to :order
-- belongs_to :prefecture_id
+- belongs_to :prefecture

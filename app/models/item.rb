@@ -1,5 +1,4 @@
 class Item < ApplicationRecord
-
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
   belongs_to :category
@@ -13,7 +12,8 @@ class Item < ApplicationRecord
     validates :image
     validates :name
     validates :content
-    validates :price,     numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is out of setting range" }, format: { with: /\A[0-9]+\z/, message: "is invalid. Input half-width characters" }
+    validates :price,
+              numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'is out of setting range' }, format: { with: /\A[0-9]+\z/, message: 'is invalid. Input half-width characters' }
   end
 
   validates :category_id,     numericality: { other_than: 1, message: "can't be blank" }
@@ -21,5 +21,4 @@ class Item < ApplicationRecord
   validates :ship_charge_id,  numericality: { other_than: 1, message: "can't be blank" }
   validates :prefecture_id,   numericality: { other_than: 0, message: "can't be blank" }
   validates :days_to_ship_id, numericality: { other_than: 1, message: "can't be blank" }
- 
 end

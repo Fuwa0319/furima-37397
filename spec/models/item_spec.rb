@@ -82,6 +82,7 @@ RSpec.describe Item, type: :model do
       it 'priceが全角数値を含んでいると登録できない' do
         @item.price = '５００'
         @item.valid?
+        binding.pry
         expect(@item.errors.full_messages).to include('Price is out of setting range')
       end
     end

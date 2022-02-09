@@ -5,9 +5,8 @@ FactoryBot.define do
     city              { Faker::Lorem.sentence }
     house_number      { Faker::Lorem.sentence }
     building_name     { Faker::Lorem.sentence }
-    cell_phone_number  { '09012345678' }
-    prefecture_id     { Faker::Number.between(from: 1, to: 47) }
+    cell_phone_number { '09012345678' }
+    prefecture_id { Faker::Number.between(from: 1, to: 47) }
     association :user
-
   end
 end

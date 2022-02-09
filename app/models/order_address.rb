@@ -9,7 +9,7 @@ class OrderAddress
     validates :city
     validates :house_number
     validates :cell_phone_number, format: { with: /\A[0-9]+\z/, message: 'is invalid. Input only number' },
-                                  length: { is: 11, message: 'is too short' }
+                                  length: { minimum: 10, maximum: 11, message: 'is too short' }
     validates :postal_code,
               format: { with: /\A\d{3}-\d{4}\z/, message: 'is invalid. Enter it as follows (e.g. 123-4567)' }
   end
